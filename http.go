@@ -15,7 +15,7 @@ import(
 	
 )
 
-func HttpDo(client http.Client,method string,url string,headers map[string] string,reader io.Reader)([]byte){
+func HttpDo(client *http.Client,method string,url string,headers map[string] string,reader io.Reader)([]byte){
  	
 	content := []byte(`{}`)
 	
@@ -71,7 +71,7 @@ func HttpDo(client http.Client,method string,url string,headers map[string] stri
  
 }
 
-func HttpJson(client http.Client,method string,url string,headers map[string] string,postData map[string] string)([]byte){
+func HttpJson(client *http.Client,method string,url string,headers map[string] string,postData map[string] string)([]byte){
 	
 	content := []byte(`{}`)
 	
@@ -93,7 +93,7 @@ func HttpJson(client http.Client,method string,url string,headers map[string] st
 	
 }
 
-func HttpPost(client http.Client,method string,url string,headers map[string] string,postData map[string] string)([]byte){
+func HttpPost(client *http.Client,method string,url string,headers map[string] string,postData map[string] string)([]byte){
 	
 	
 	post := FormData(postData)
