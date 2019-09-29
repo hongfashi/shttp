@@ -1,7 +1,6 @@
 package stools
 
 import(
-	"os"
 	"net"
 	"net/http"
 	"net/url"
@@ -130,4 +129,24 @@ func NewHttpClient(proxyAddr string) http.Client {
         Timeout:   time.Second * 10,
         Transport: netTransport,
     }
+}
+
+func FormData(postData map[string] string)(string){
+
+	index :=0
+	post := ""
+		
+	for k, v := range postData {
+		
+		if index >0{
+			post=post+"&"+k+"="+v
+		}else{
+			post=k+"="+v
+		}
+		
+		index=index+1
+	}
+	
+	return post
+	
 }
